@@ -1,6 +1,6 @@
 const express =require ("express")
 const loginRout= express.Router()
-const {login}=require("../controller/login")
+const {login}=require("../controllers/Login")
 loginRout.post("/login",login)
 
 
