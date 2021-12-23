@@ -4,8 +4,8 @@ const userModel = new mongoose.Schema({
   name: { type: String },
   email: { type: String, unique: true },
   password: { type: String },
-  OurWork:[{type: mongoose.Schema.Types.ObjectId, ref: "productModel"}] ,
-  Like:  [{type: mongoose.Schema.Types.ObjectId, ref: "productModel"}] ,
-});
+  roleId: {type: Number},
+                             // اخزن البيانات
+}); 
 
 module.exports = mongoose.model("userModel", userModel);

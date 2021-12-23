@@ -3,12 +3,12 @@ const jwt = require("jsonwebtoken");
 const authentication = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    const valid = jwt.verify(token, "ABC");
+    const valid = jwt.verify(token, "ABC"); // اتاكد من التوكن اذا صحيح
     req.token = valid;
     next();
   } catch (error) {
     res.status(403);
-    res.send(error);
+    res.send("Unauthorized");
   }
 };
 
