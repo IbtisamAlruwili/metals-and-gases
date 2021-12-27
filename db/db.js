@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/metalDB").then(
+mongoose.connect("mongodb://localhost/metalDB").then(
   () => {
     console.log("DB connected");
   },
