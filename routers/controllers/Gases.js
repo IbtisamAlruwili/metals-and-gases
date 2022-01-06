@@ -13,7 +13,7 @@ const InsertGases = async (req, res) => {
 };
 
 const deleteGases = async (req, res) => {
-  const id = req.params.id;  // 
+  const id = req.params.id;       // 
   try {
     const deleted = await Gases.findOneAndDelete({_id: id});  //علشان يحذف عنصر واحد 
     res.status(200).json(deleted);
@@ -22,20 +22,20 @@ const deleteGases = async (req, res) => {
   }
 };
 
-
 const updateGases = async (req, res) => {
   const id = req.params.id; // جبت العنصر اللي ابي اعمل عليه تعديل 
-  const {desc} = req.body;   // التحديث ل الوصف 
+  const desc = req.body.description;   // التحديث ل الوصف 
   try {
     const updated = await Metal.findOneAndUpdate(  // ميثود التحديث 
-      { _id: id },   
-      { desc },
+      { _id: id },      //
+      { description: desc },     //
+      { new: true }               //
+
     );
-    const des = await Metal.find({})
-    res.status(200).json(des);
+    res.status(200).json(updated);
   } catch (error) {
     res.send(error);
   }
 };
 
-module.exports={ InsertGases,deleteGases ,updateGases}// استخرج 
+module.exports={ InsertGases,deleteGases,updateGases }; // استخرج 

@@ -30,37 +30,6 @@ const login = async (req, res) => {
   }
 };
 
-// const like = async (req, res) => {
-//   const id = req.body.id;       //يجيب العنصر اللي يبي يحط له لايك يحدده من ال id
-//   const user = req.token.userId;   //يجيب الشخص اللي يبي يحط له لايك يحدده من ال token
-//   try {
-//     const newLike = await userModel.findOneAndUpdate(
-//       { _id: user },
-//       { $push: { Like: id } },  //for add
-//        {new:true}
-//       );
-//     res.status(201).json(newLike);
-//   } catch (error) {
-//     res.send(error);
 
-//   }
-// };
+module.exports = { login};
 
-// const unlike = async (req, res) => {
-//   const id=req.body.id;   //يجيب العنصر اللي يبي يحط له لايك يحدده من ال id
-//   const user = req.token.userId;  //يجيب الشخص اللي يبي يحط له لايك يحدده من ال token
-//   try {
-//     const newLike = await userModel.findOneAndUpdate(
-//      {_id:user},
-//      {$pull:{Like:id}},
-//      {new:true}
-//      );
-//     res.status(201).json(newLike);
-//   } catch (error) {
-//     res.send(error);
-//   }
-// };
-
-// module.exports = { login, like, unlike };
-
-module.exports = { login };

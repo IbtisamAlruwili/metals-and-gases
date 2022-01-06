@@ -12,7 +12,7 @@ const InsertMetal = async (req, res) => {   // الاضافة
 };
 
 const deleteMetal = async (req, res) => {
-  const id = req.params.id;  //  يحذف ب id
+  const id = req.params.id;  // 
   try {
     const deleted = await Metal.findOneAndDelete({_id: id});  //علشان يحذف عنصر واحد 
     res.status(200).json(deleted);
@@ -21,20 +21,20 @@ const deleteMetal = async (req, res) => {
   }
 };
 
-
 const updateMetal = async (req, res) => {
   const id = req.params.id; // جبت العنصر اللي ابي اعمل عليه تعديل 
-  const {desc} = req.body;   // التحديث ل الوصف 
+  const desc = req.body.description;   // التحديث ل الوصف 
   try {
     const updated = await Metal.findOneAndUpdate(  // ميثود التحديث 
-      { _id: id },   
-      { desc },
+      { _id: id },    //
+      { description: desc },  //
+      { new: true }       //
+
     );
-    const des = await Metal.find({})
-    res.status(200).json(des);
+    res.status(200).json(updated);
   } catch (error) {
     res.send(error);
   }
 };
 
-module.exports={ InsertMetal, deleteMetal,updateMetal }; // استخرج 
+module.exports={InsertMetal,deleteMetal,updateMetal}; // استخرج 
