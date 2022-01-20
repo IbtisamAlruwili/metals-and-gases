@@ -1,10 +1,14 @@
-const express =require ("express")
-const gasesRoute = express.Router()
-const { InsertGases, updateGases, deleteGases }=require("../controllers/Gases")
-const { authentication }=require("../middlewares/Authentication")
+const express = require("express");
+const gasesRoute = express.Router();
+const {
+  InsertGases,
+  updateGases,
+  deleteGases,
+} = require("../controllers/Gases");
+const { authentication } = require("../middlewares/Authentication");
 
-gasesRoute.post("/gases", authentication, InsertGases),
-gasesRoute.put("/gases/:id", authentication,updateGases)
-gasesRoute.delete("/gases/:id", authentication, deleteGases)
+gasesRoute.post("/gases", authentication, InsertGases);
+gasesRoute.put("/gases/:id", authentication, updateGases);
+gasesRoute.delete("/gases/:id", authentication, deleteGases);
 
-module.exports= gasesRoute
+module.exports = gasesRoute;

@@ -4,7 +4,6 @@ const userModel = require("../../db/models/User");
 
 const login = async (req, res) => {
   let { email, password } = req.body;
-
   try {
     const user = await userModel.findOne({ email: email });//ادور الايميل اللي دخله اليوزر
     if (user) {    //اذا صح 
@@ -18,7 +17,7 @@ const login = async (req, res) => {
         }else{
           arr.push("ShowOurWorks", "ShowExplorations");  // لو مستخدم عادى يرجع الصفحات 
         }
-        res.status(200).json({ token, arr });  // نرجع الاراى مع التوكن
+        res.status(200).json({ token, arr, roleId: user.roleId });  // نرجع الاراى مع التوكن
       } else {
         res.status(403).json("wrong PassWord!");
       }
