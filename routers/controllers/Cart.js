@@ -74,7 +74,7 @@ const remoGasesCart = async (req, res) => {
   try {
     const newCart = await userModel.findOneAndRemove(
       { _id: user }, //
-      { cart1: id }, //
+      { $pull: { cart: id } }, //
       { new: true } //
     );
     res.status(201).json(newCart);

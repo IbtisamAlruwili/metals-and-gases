@@ -21,6 +21,8 @@ app.use(metalRoute);
 app.use(productRoute);
 
 ////////////////////////////
+// console.log(procces.env.port)
+
 const Port = 5000;
 app.listen(process.env.PORT || Port,()=>{
     console.log("server is running");
